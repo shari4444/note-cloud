@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Notes Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/dashboard-CfKBpts5.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/auth-Btxz5EDN.js">
+  <link rel="stylesheet" crossorigin href="/assets/dashboard-ocbkKYt1.css">
+</head>
+<body>
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+  <div class="app-shell" id="appShell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand-row">
+        <div class="brand-icon">✦</div>
+        <div class="brand-name">Shari'z notecloud</div>
+        <button class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close menu">✕</button>
+      </div>
+
+      <nav class="main-nav">
+        <button class="nav-item active"><span class="nav-icon">▤</span> Notes</button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <button class="add-note" id="newNoteBtn">＋ New note</button>
+        <div class="sidebar-user">
+          <div class="avatar small">R</div>
+          <div class="user-details">
+            <strong class="user-name">Regina</strong>
+            <span>Personal workspace</span>
+          </div>
+          <span class="more">•••</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="workspace" id="workspace">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-toggle-btn" id="menuToggleBtn" aria-label="Open navigation menu">☰</button>
+          <button class="back-to-list-btn" id="backToListBtn" aria-label="Back to notes list">
+            <span class="back-arrow">‹</span>
+            <span>Notes</span>
+          </button>
+          <div class="breadcrumbs">
+            <span class="crumb-root">Notes</span>
+            <span class="crumb-arrow">›</span>
+            <strong id="breadcrumbTitle">Sales Presentation</strong>
+          </div>
+        </div>
+
+        <div class="profile-area">
+          <button class="icon-btn notification-btn" id="notifBtn" title="Collaboration Requests">
+            <span>♧</span>
+            <span class="notif-badge hidden" id="notifBadge">1</span>
+          </button>
+          <button class="profile-button" id="profileBtn" aria-label="User profile">
+            <div class="avatar">R</div>
+            <div class="profile-copy">
+              <strong class="user-name">Regina</strong>
+              <span>Free plan</span>
+            </div>
+            <span class="chevron">⌄</span>
+          </button>
+        </div>
+      </header>
+
+      <section class="content">
+        <div class="notes-column">
+          <div class="column-header">
+            <div>
+              <p class="eyebrow">YOUR NOTES</p>
+              <h2>Notes</h2>
+            </div>
+            <button class="round-add" id="newNoteBtn2">＋</button>
+          </div>
+
+          <div class="search-box">
+            <span>⌕</span>
+            <input id="searchInput" type="text" placeholder="Search notes..." />
+          </div>
+
+          <!-- Incoming Collaboration Requests Card (Shown on Dashboard when invited) -->
+          <div class="incoming-requests-box hidden" id="incomingRequestsBox">
+            <div class="requests-header">
+              <span class="requests-eyebrow">COLLABORATION REQUEST</span>
+            </div>
+            <div class="requests-list" id="requestsList"></div>
+          </div>
+
+          <div class="note-list" id="noteList"></div>
+        </div>
+
+        <section class="editor-panel">
+          <div class="editor-toolbar">
+            <div class="toolbar-left">
+              <button class="toolbar-btn" data-cmd="bold"><b>B</b></button>
+              <button class="toolbar-btn" data-cmd="italic"><i>I</i></button>
+              <button class="toolbar-btn" data-cmd="underline"><u>U</u></button>
+              <span class="toolbar-divider"></span>
+              <button class="toolbar-btn" data-cmd="insertUnorderedList">• List</button>
+              <button class="toolbar-btn" data-cmd="formatBlock" data-value="h2">H</button>
+            </div>
+            <div class="toolbar-right">
+              <span class="saved-status" id="savedStatus">Saved locally</span>
+              <button class="delete-btn" id="deleteBtn">Delete</button>
+            </div>
+          </div>
+
+          <article class="editor">
+            <input class="title-input" id="titleInput" value="Sales Presentation" aria-label="Note title" />
+            <div class="meta">
+              <span id="dateLabel">Updated just now</span>
+              <span>•</span>
+              <span>Personal note</span>
+            </div>
+
+            <div
+              id="editor"
+              class="editable"
+              contenteditable="true"
+              spellcheck="true"
+            >
+              <h2>Key talking points from the meeting:</h2>
+              <ul class="task-list">
+                <li class="task-item"><input type="checkbox">Introduced new solutions for streamlining sales.</li>
+                <li class="task-item"><input type="checkbox">Showcased automation features and reporting workflows.</li>
+                <li class="task-item"><input type="checkbox">Highlighted the improved customer experience.</li>
+                <li class="task-item"><input type="checkbox">Discussed customizable reporting features that provide more flexibility.</li>
+                <li class="task-item"><input type="checkbox">Addressed concerns about data security and compliance.</li>
+                <li class="task-item"><input type="checkbox">Outlined the pricing structure and available subscription plans.</li>
+                <li class="task-item"><input type="checkbox">Answered questions about integration with existing CRM systems.</li>
+                <li class="task-item"><input type="checkbox">Scheduled a follow-up meeting to discuss a potential pilot project.</li>
+              </ul>
+
+              <h2>Action items</h2>
+              <ul class="task-list">
+                <li class="task-item"><input type="checkbox">Send the updated pricing document.</li>
+                <li class="task-item"><input type="checkbox">Share the product demo recording.</li>
+                <li class="task-item"><input type="checkbox">Prepare the pilot proposal.</li>
+              </ul>
+            </div>
+          </article>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <div class="profile-menu hidden" id="profileMenu">
+    <div class="profile-menu-header">
+      <div class="avatar">R</div>
+      <div>
+        <strong id="profileMenuName" class="user-name">Regina</strong>
+        <span id="profileMenuEmail">regina@example.com</span>
+      </div>
+    </div>
+    <button id="accountSettingsBtn">Account settings</button>
+    <button id="preferencesBtn">Preferences</button>
+    <button id="signOutBtn">Sign out</button>
+  </div>
+
+  <!-- Collaboration Modal -->
+  <div class="modal-backdrop hidden" id="collabModalBackdrop">
+    <div class="modal-card" id="collabModal">
+      <div class="modal-header">
+        <div>
+          <span class="modal-eyebrow">NOTE COLLABORATION</span>
+          <h3 id="collabNoteTitle">Collaborate on Note</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="collabCloseBtn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <form id="collabInviteForm" class="collab-form">
+          <label for="collabEmailInput">Invite by Google account email</label>
+          <div class="collab-input-row">
+            <input type="email" id="collabEmailInput" placeholder="collaborator@gmail.com" autocomplete="email" required />
+            <button type="submit" id="collabSendBtn" class="collab-submit-btn">Send Invite</button>
+          </div>
+        </form>
+
+        <div class="collab-link-box hidden" id="collabLinkBox">
+          <label>Direct invitation link</label>
+          <div class="link-copy-row">
+            <input type="text" id="collabLinkInput" readonly />
+            <button type="button" id="copyCollabLinkBtn" class="copy-btn">Copy</button>
+            <a href="#" id="mailtoCollabLink" class="mailto-btn" target="_blank" rel="noopener noreferrer">Email</a>
+          </div>
+        </div>
+
+        <div class="collaborators-section">
+          <h4>Collaborators & Status</h4>
+          <div class="collab-list" id="collabList">
+            <div class="collab-empty">No collaborators yet. Invite someone above!</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Incoming Invitation Banner -->
+  <div class="invite-banner hidden" id="inviteBanner">
+    <div class="invite-banner-content">
+      <div class="invite-icon">✦</div>
+      <div class="invite-info">
+        <strong id="inviteBannerTitle">Collaboration Invitation</strong>
+        <p id="inviteBannerText">You have been invited to collaborate on a note.</p>
+      </div>
+      <div class="invite-actions">
+        <button type="button" class="invite-accept-btn" id="bannerAcceptBtn">Accept</button>
+        <button type="button" class="invite-decline-btn" id="bannerDeclineBtn">Decline</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shari'z notecloud — Auth</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script type="module" crossorigin src="/assets/main-D47uF94O.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/auth-Btxz5EDN.js">
+  <link rel="stylesheet" crossorigin href="/assets/main-DHvivvxD.css">
+</head>
+<body>
+  <main class="auth-page">
+    <div class="auth-card">
+      <div class="logo-mark">✦</div>
+
+      <div class="brand">Shari'z notecloud</div>
+
+      <div class="heading">
+        <h1 id="heading">Welcome back</h1>
+        <p id="subheading">Log in to continue to your notes.</p>
+      </div>
+
+      <div class="mode-switch">
+        <button class="mode active" id="loginTab">Log in</button>
+        <button class="mode" id="signupTab">Sign up</button>
+        <span class="switch-indicator"></span>
+      </div>
+
+      <div class="google-btn-wrap" id="googleBtnWrap">
+        <button type="button" class="google-btn" id="googleAuthBtn">
+          <div class="google-logo"><span>G</span></div>
+          <span id="googleBtnLabel">Continue with Google</span>
+        </button>
+      </div>
+
+      <div class="divider">
+        <span>or continue with email</span>
+      </div>
+
+      <form id="authForm">
+        <div class="field signup-only hidden">
+          <label for="name">Name</label>
+          <input id="name" type="text" placeholder="Your name" autocomplete="name" />
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" autocomplete="email" required />
+        </div>
+
+        <div class="field">
+          <div class="label-row">
+            <label for="password">Password</label>
+            <button type="button" class="forgot" id="forgotBtn">Forgot password?</button>
+          </div>
+          <div class="password-wrap">
+            <input id="password" type="password" placeholder="••••••••" autocomplete="current-password" required />
+            <button type="button" class="show-password" id="showPassword">Show</button>
+          </div>
+        </div>
+
+        <div class="field signup-only hidden">
+          <label for="confirmPassword">Confirm password</label>
+          <input id="confirmPassword" type="password" placeholder="••••••••" autocomplete="new-password" />
+        </div>
+
+        <label class="terms signup-only hidden">
+          <input type="checkbox" id="terms" />
+          <span>I agree to the <a href="#">Terms</a> and <a href="#">Privacy Policy</a>.</span>
+        </label>
+
+        <button class="submit-btn" type="submit" id="submitBtn">Log in</button>
+      </form>
+
+      <p class="bottom-text">
+        <span id="bottomPrompt">Don't have an account?</span>
+        <button id="bottomSwitch">Sign up</button>
+      </p>
+
+      <p class="demo-note">Powered by Supabase Auth & PostgreSQL</p>
+    </div>
+
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+</body>
+</html>
